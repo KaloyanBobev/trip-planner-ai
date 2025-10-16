@@ -10,6 +10,11 @@ const menuOptions = [
     name: "Pricing",
     path: "/pricing",
   },
+  ,
+  {
+    name: "Contact Us",
+    path: "/contact-us",
+  },
 ];
 
 function Header() {
@@ -21,6 +26,11 @@ function Header() {
         <h2 className="font-bold text-2xl">AI Trip planner</h2>
       </div>
       {/*Menu options*/}
+      <div>
+        {menuOptions.map((menu, index) => (
+          <h2>{menu.name}</h2>
+        ))}
+      </div>
       {/*Get started button*/}
     </div>
   );
