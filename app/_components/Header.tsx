@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const menuOptions = [
   {
@@ -19,19 +21,22 @@ const menuOptions = [
 
 function Header() {
   return (
-    <div>
+    <div className="flex justify-between items-center p-4">
       {/*Logo*/}
       <div className="flex gap-2 item-center">
         <Image src={"/logo.svg"} alt="logo" width={30} height={30} />
         <h2 className="font-bold text-2xl">AI Trip planner</h2>
       </div>
       {/*Menu options*/}
-      <div>
+      <div className="flex gap-8 item-center">
         {menuOptions.map((menu, index) => (
-          <h2>{menu.name}</h2>
+          <Link href={menu?.path}>
+            <h2 className="text-lg hover:scale-110 transition">{menu.name}</h2>
+          </Link>
         ))}
       </div>
       {/*Get started button*/}
+      <Button>Get Started</Button>
     </div>
   );
 }
