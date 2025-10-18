@@ -28,10 +28,14 @@ function Header() {
         <h2 className="font-bold text-2xl">AI Trip planner</h2>
       </div>
       {/*Menu options*/}
+
       <div className="flex gap-8 item-center">
         {menuOptions.map((menu, index) => (
+          // @ts-ignore
           <Link href={menu?.path}>
-            <h2 className="text-lg hover:scale-110 transition">{menu.name}</h2>
+            <h2 className="text-lg hover:scale-110 transition hover:text-primary">
+              {menu!.name}
+            </h2>
           </Link>
         ))}
       </div>
