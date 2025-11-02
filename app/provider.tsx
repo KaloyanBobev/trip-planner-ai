@@ -1,16 +1,39 @@
-import React from 'react'
-import Header from './_components/Header';
+"use client";
+
+import React, { useEffect } from "react";
+import Header from "./_components/Header";
+import { useMutation } from "convex/react";
+import { api } from "@/convex/_generated/api";
+import { useUser } from "@clerk/nextjs";
 
 function Provider({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const createUserMutation = useMutation(api.user.CraeteNewUser);
+  const { user } = useUser();
+
+  useEffect(() => {
+    if (user) user && createUser();
+  }, [user]);
+
+  const createUser = async () => {
+    if (user) {
+      await createUserMutation({
+        email: user?.primaryEmailAddress?.emailAddress ?? "",
+        imageUrl: user?.imageUrl,
+        name: user?.fullName ?? "",
+      });
+    }
+  };
+
   return (
     <div>
-        <Header/>
-        {children}</div>
-  )
+      <Header />
+      {children}
+    </div>
+  );
 }
 
-export default Provider
+export default Provider;
