@@ -8,7 +8,7 @@
  * @module
  */
 
-import type * as schema from "../schema.js";
+import type * as user from "../user.js";
 
 import type {
   ApiFromModules,
@@ -25,7 +25,7 @@ import type {
  * ```
  */
 declare const fullApi: ApiFromModules<{
-  schema: typeof schema;
+  user: typeof user;
 }>;
 declare const fullApiWithMounts: typeof fullApi;
 
