@@ -44,5 +44,6 @@ function Provider({
 export default Provider;
 
 export const useUserDetail = () => {
-  return useContext(UserDetailContext);
+  return 
+  useContext(UserDetailContext);
 };
