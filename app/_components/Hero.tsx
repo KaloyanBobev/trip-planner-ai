@@ -36,6 +36,7 @@ function Hero() {
       return;
     }
     // If user is logged in, navigate to the trip creation page
+    router.push("/create-new-trip");
   };
 
   return (
