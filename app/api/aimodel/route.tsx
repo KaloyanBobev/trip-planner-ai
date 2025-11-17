@@ -37,7 +37,7 @@ export async function POST(req:NextRequest) {
       messages: [
         {
           role: "system",
-          content: "PROMPT",
+          content: PROMPT,
         },
         ...messages
       ],
@@ -49,6 +49,6 @@ export async function POST(req:NextRequest) {
     }
 
     catch(e){
-        return
+        return NextResponse.json(e);
     }
 }
