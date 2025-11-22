@@ -32,20 +32,20 @@ export async function POST(req:NextRequest) {
 
     try{
         const completion = await openrouterClient.chat.completions.create({
-      model: "openai/gpt-4.1-mini",
-
-      messages: [
-        {
-          role: "system",
-          content: PROMPT,
-        },
-        ...messages
-      ],
-      
-    });
-    console.log(completion.choices[0].message);
-    const message= completion.choices[0].message;
-    return NextResponse.json(JSON.parse(messages.content??''));
+          model: "openai/gpt-4.1-mini",
+          response_format: { type: "json_object" },
+          max_tokens: 500,
+          messages: [
+            {
+              role: "system",
+              content: PROMPT,
+            },
+            ...messages,
+          ],
+        });
+        console.log(completion.choices[0].message);
+        const message = completion.choices[0].message;
+        return NextResponse.json(JSON.parse(messages));
     }
 
     catch(e){
