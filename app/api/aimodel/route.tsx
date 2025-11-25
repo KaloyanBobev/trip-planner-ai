@@ -31,7 +31,7 @@ export async function POST(req: NextRequest) {
   try {
     const completion = await openai.chat.completions.create({
       model: "openai/gpt-oss-20b:free",
-
+response_format:{type:'json_object'},
       messages: [
         {
           role: "system",
