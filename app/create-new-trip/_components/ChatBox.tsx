@@ -6,6 +6,7 @@ import axios from "axios";
 import { Loader, Send } from "lucide-react";
 import { pre } from "motion/react-client";
 import React, { useState } from "react";
+import EmptyBoxState from "./EmptyBoxState";
 
 type Message = {
   role: string;
@@ -43,6 +44,7 @@ function ChatBox() {
   };
   return (
     <div className="h-[85vh] flex flex-col">
+      {messages?.length == 0 && <EmptyBoxState onSelectOption = {(v:string)=>{setUserInput(v); onSend()}}/>}
       {/*Display Messsages*/}
       <section className="flex-1 overflow-y-auto p-4">
         {messages.map((msg: Message, index) =>
