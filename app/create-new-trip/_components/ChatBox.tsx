@@ -9,8 +9,9 @@ import React, { useState } from "react";
 import EmptyBoxState from "./EmptyBoxState";
 
 type Message = {
-  role: string;
-  content: string;
+  role: string,
+  content: string,
+  ui?:string,
 };
 
 function ChatBox() {
@@ -37,11 +38,23 @@ function ChatBox() {
       {
         role: "assistant",
         content: result?.data?.resp,
+        ui:result?.data?.UI 
       },
     ]);
     console.log(result.data);
     setLoading(false);
   };
+
+   const RenderGenerativeUi = (ui:string) =>{
+      if(ui =='budget'){
+        //Budget UI Component 
+      } else if(ui =='groupSize'){
+         //Group Size UI Component
+      }
+      return null;
+   }
+
+
   return (
     <div className="h-[85vh] flex flex-col">
       {messages?.length == 0 && <EmptyBoxState onSelectOption = {(v:string)=>{setUserInput(v); onSend()}}/>}
@@ -58,6 +71,7 @@ function ChatBox() {
             <div className="flex justify-start mt-2" key={index}>
               <div className="max-w-lg bg-gray-100 text-black px-4 py-2 rounded-lg">
                 {msg.content}
+                {RenderGenerativeUi(msg.ui??'')}
               </div>
             </div>
           )
