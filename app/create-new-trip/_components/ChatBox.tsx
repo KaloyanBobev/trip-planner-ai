@@ -7,6 +7,7 @@ import { Loader, Send } from "lucide-react";
 import { pre } from "motion/react-client";
 import React, { useState } from "react";
 import EmptyBoxState from "./EmptyBoxState";
+import GroupSizeUi from "./GroupSizeUi";
 
 type Message = {
   role: string,
@@ -50,6 +51,7 @@ function ChatBox() {
         //Budget UI Component 
       } else if(ui =='groupSize'){
          //Group Size UI Component
+         return <GroupSizeUi/>
       }
       return null;
    }
