@@ -33,7 +33,7 @@ export const SelectTravelesList = [
 
 function GroupSizeUi() {
   return (
-    <div>
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 items-center mt-1">
       {SelectTravelesList.map((item, index) => (
         <div
           key={index}
@@ -43,9 +43,8 @@ function GroupSizeUi() {
           <h2>{item.title}</h2>
         </div>
       ))}
-      ;
     </div>
   );
 }
 
-export default GroupSizeUi
+export default GroupSizeUi;
