@@ -39,22 +39,22 @@ function ChatBox() {
       {
         role: "assistant",
         content: result?.data?.resp,
-        ui:result?.data?.UI 
+        ui: result?.data?.ui,
       },
     ]);
     console.log(result.data);
     setLoading(false);
   };
 
-   const RenderGenerativeUi = (ui:string) =>{
-      if(ui =='budget'){
-        //Budget UI Component 
-      } else if(ui =='groupSize'){
-         //Group Size UI Component
-         return <GroupSizeUi/>
-      }
-      return null;
-   }
+  const RenderGenerativeUi = (ui: string) => {
+    if (ui == "budget") {
+      //Budget UI Component
+    } else if (ui == "groupSize") {
+      //Group Size UI Component
+      return <GroupSizeUi />;
+    }
+    return null;
+  };
 
 
   return (
