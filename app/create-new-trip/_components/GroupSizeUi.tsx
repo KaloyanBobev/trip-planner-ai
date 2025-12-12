@@ -31,13 +31,14 @@ export const SelectTravelesList = [
   },
 ];
 
-function GroupSizeUi() {
+function GroupSizeUi({ onSelectedOption }:any) {
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-2 items-center mt-1">
       {SelectTravelesList.map((item, index) => (
         <div
           key={index}
           className="p-3 border round-2xl bg-white hover:border-primary cursor-pointer"
+          onClick={() => onSelectedOption(item.title + ":" + item.people)}
         >
           <h2>{item.icon}</h2>
           <h2>{item.title}</h2>
