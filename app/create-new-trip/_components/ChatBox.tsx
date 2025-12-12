@@ -8,6 +8,7 @@ import { pre } from "motion/react-client";
 import React, { useState } from "react";
 import EmptyBoxState from "./EmptyBoxState";
 import GroupSizeUi from "./GroupSizeUi";
+import BudgetUi from "./BudgetUi";
 
 type Message = {
   role: string,
@@ -49,6 +50,12 @@ function ChatBox() {
   const RenderGenerativeUi = (ui: string) => {
     if (ui == "budget") {
       //Budget UI Component
+      <BudgetUi
+        onSelectedOption={(v: string) => {
+          setUserInput(v);
+          onSend();
+        }}
+      />;
     } else if (ui == "groupSize") {
       //Group Size UI Component
       return (
