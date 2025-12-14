@@ -38,8 +38,9 @@ function BudgetUi({onSelectedOption}:any) {
             className="p-3 border round-2xl bg-white hover:border-primary cursor-pointer"
             onClick={() => onSelectedOption(item.title + ":" + item.desc)}
           >
-            <h2>{item.icon}</h2>
-            <h2>{item.title}</h2>
+            <div className='text-3xl p-3 rounded-full'>{item.icon}</div>
+            <h2 className='text-lg font-semibold mt-2'>{item.title}</h2>
+            <p className='text-sm text-gray-500'>{item.desc}</p>
           </div>
         ))}
       </div>
